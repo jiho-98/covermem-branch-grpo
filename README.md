@@ -26,6 +26,8 @@ flowchart LR
 
 ## 문서
 
+- **[AI 에이전트용 통합 인계서: A/B·세 번째 실험](docs/AI_AGENT_HANDOFF_KO.md)** — 실행 담당 에이전트는 루트 [AGENTS.md](AGENTS.md)부터 읽는다.
+- **[Google Drive 다운로드·분할 ZIP 복원](docs/DOWNLOAD_AND_RESTORE_KO.md)** — 최신 Git 코드에 어댑터·데이터만 가져오는 절차.
 - **[서버 설치·실행·확인·재개 안내](docs/SERVER_RUNBOOK_KO.md)**
 - **[박사님께 전달할 메시지](docs/HANDOFF_MESSAGE_KO.md)**
 - [방법, 문서의 모호한 부분에 대한 결정, 비교 조건](docs/METHOD_AND_DECISIONS_KO.md)
