@@ -102,4 +102,4 @@ tail -F orchestration/branch_p025/logs/branch_p025_train.log
 | `cmbranch/checkpoint.py`, `evaluate.py` | phase/RNG/뱅크/optimizer 재개 및 한 경로 greedy 평가 |
 | `scripts/`, `supervision/`, `tests/` | 설치·큐·지속 supervisor·CPU 검증 |
 
-실행 중 source/config를 바꾸거나 Git pull로 교체하지 않는다. 변경된 연구 조건은 새 checkout/출력 폴더와 fingerprint로 분리한다. 비공개 저장소 접근 권한이 없으면 전체 ZIP만으로도 실행할 수 있다.
+실행 중 source/config를 바꾸거나 Git pull로 교체하지 않는다. 변경된 연구 조건은 새 checkout/출력 폴더와 fingerprint로 분리한다. 저장소는 Public이며 HTTPS clone에 GitHub 인증이 필요 없다. 전체 ZIP만으로도 실행할 수 있지만 최신 문서는 GitHub에서 읽는다.

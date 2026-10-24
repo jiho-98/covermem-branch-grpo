@@ -19,7 +19,7 @@ command -v sbatch || true
 
 ## 2. 코드와 ZIP 입력
 
-GitHub 저장소는 비공개다. 소유자가 박사님 GitHub 계정에 초대하고 초대를 수락한 뒤 평소 HTTPS/SSH 인증으로 clone한다. Git에는 데이터/어댑터가 없으므로 전체 ZIP도 준비한다.
+GitHub 저장소는 Public이다. 아래 HTTPS clone에는 로그인·초대·토큰이 필요 없다. Git에는 데이터/어댑터가 없으므로 Drive의 전체 ZIP도 준비한다.
 
 ```bash
 git clone https://github.com/jiho-98/covermem-branch-grpo.git
@@ -236,7 +236,7 @@ smoke/train/eval/analyze 각각 별도 stage다. 실패한 stage의 로그를 �
 
 | 오류 | 확인 사항 |
 |---|---|
-| GitHub Repository not found | 비공개 repo 초대/인증. ZIP 실행도 가능 |
+| GitHub Repository not found | 공개 HTTPS 주소와 서버 네트워크/프록시 확인. ZIP 실행도 가능 |
 | 입력 SHA mismatch | 새 ZIP/파일 확인, 기존 변경 파일을 덮어쓰지 말고 새 폴더 사용 |
 | version mismatch | Python3.10, `.venv`, 고정버전 확인 |
 | Expose exactly one GPU | GPU mask 또는 Slurm step 확인 |
