@@ -1,0 +1,6 @@
+{
+  "user_reported": "A100 40GB x16",
+  "gpu_executed": false,
+  "scheduler": "not specified",
+  "runner": "one process / one GPU per condition"
+}

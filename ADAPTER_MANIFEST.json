@@ -1,0 +1,10 @@
+{
+  "sft": {
+    "training": "complete",
+    "type": "SFT",
+    "weight_sha256": "7da11c2767971843a0190f7fd4e87301a48efde6321492ba8f7f5e72f9dcec20",
+    "config_sha256": "9a316c0ce554c7771865e5f77bbd98eaeeea7e0bd1a7a98c96624c8e6bf8107b",
+    "base_model": "Qwen/Qwen3-4B-Instruct-2507",
+    "base_revision": "cdbee75f17c01a7cc42f958dc650907174af0554"
+  }
+}

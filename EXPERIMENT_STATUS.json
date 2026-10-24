@@ -1,0 +1,28 @@
+{
+  "implementation": "complete",
+  "research_experiment": "third: single-manager session-gated branch GRPO",
+  "primary_config": "configs/branch_p025.json",
+  "controls": [
+    "configs/vanilla_matched.json",
+    "configs/vanilla_original.json"
+  ],
+  "optional_configs": [
+    "configs/branch_p050.json",
+    "configs/branch_p100.json"
+  ],
+  "user_confirmed_entry_structure": "keep original entries; phase1 original5 actions, phase2 ADD/SKIP/REPLACE",
+  "default_K": 4,
+  "default_branch_probability": 0.25,
+  "phase_gate": "all four banks >=95% at same session end; next session; permanent within history",
+  "trainable_adapters": [
+    "manager"
+  ],
+  "fixed_reference": "manager_ref initialized SFT",
+  "cpu_tests": 28,
+  "supervisor_tests": 2,
+  "cpu_test_torch": "2.12.0",
+  "gpu_validation": "not_run",
+  "target_hardware": "A100 40GB x16, one GPU per experiment",
+  "actual_training_or_evaluation_results": null,
+  "external_collaborator_delivery": "not_sent"
+}

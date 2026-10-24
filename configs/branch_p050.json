@@ -1,0 +1,95 @@
+{
+  "schema": "covermem.branch_grpo.v1",
+  "paths": {
+    "base_model": "models/Qwen3-4B-Instruct-2507",
+    "tokenizer": "assets/tokenizer",
+    "assets": "assets",
+    "manager_adapter": "adapters/sft",
+    "manager_reference": "adapters/sft",
+    "output": "runs/branch_v1/branch_p050"
+  },
+  "environment": {
+    "bank_budget_chars": 43500,
+    "streams": 4,
+    "max_action_attempts": 3
+  },
+  "manager_reward": {
+    "complete": 0.7,
+    "recall": 0.3,
+    "mid_weight": 0.5,
+    "end_weight": 0.5,
+    "std_correction": 0,
+    "epsilon": 1e-08,
+    "invalid_advantage_ceiling": -0.5,
+    "credit_assignment": {
+      "estimator": "pre_action_bank_loo_continuation_gain_v1",
+      "fixed_scale": 0.008103060640792133,
+      "calibration_file": "provenance/original_loo_calibration.json",
+      "calibration_weighting": "valid outputs; response length / all response tokens of session",
+      "peer_alignment": "original_turn_first_attempt_exclude_own_trajectory"
+    }
+  },
+  "rollout": {
+    "temperature": 1.0,
+    "top_p": 1.0,
+    "top_k": 0,
+    "manager_max_new_tokens": 8192,
+    "max_model_len": 32768
+  },
+  "training": {
+    "seed": 42,
+    "ppo_epochs": 1,
+    "session_batch_size": 1,
+    "manager_learning_rate": 5e-06,
+    "weight_decay": 0.0,
+    "adam_betas": [
+      0.9,
+      0.999
+    ],
+    "clip_ratio": 0.2,
+    "manager_kl_coef": 0.02,
+    "grad_clip": 1.0,
+    "gradient_checkpointing": true,
+    "dtype": "bfloat16",
+    "attention_implementation": "sdpa",
+    "logit_chunk_tokens": 128,
+    "advantage_normalization": "session_output_population_std",
+    "advantage_epsilon": 1e-08,
+    "zero_std_rule": "divide_by_one"
+  },
+  "validation": {
+    "max_mean_logprob_gap": 0.15,
+    "max_logprob_gap": 2.0
+  },
+  "checkpoint": {
+    "keep_last": 2
+  },
+  "execution": {
+    "require_slurm": false,
+    "cpu_threads": 4
+  },
+  "design_status": {
+    "base_model_revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+    "backend": "single_gpu_transformers_peft_no_shared_prefix_cache",
+    "target_server": "A100 40GB x16; one GPU per experiment",
+    "phase1_credit": "original per-action LOO continuation gain; not trajectory-only endpoint advantage",
+    "entry_structure": "original raw entries; UPDATE may combine multiple source turns",
+    "evaluation": "one greedy path, own session-end 95% transition; matched control same rule"
+  },
+  "mode": "branch",
+  "branch": {
+    "samples": 4,
+    "probability": 0.5,
+    "occupancy_threshold": 0.95,
+    "transition": "all_four_at_session_end_next_session_latched",
+    "question_pool": "full_conversation_dedup_sufficient_sets",
+    "executed_sample_index": 0,
+    "invalid_reward": -2.0,
+    "invalid_execution": "no_op_no_retry",
+    "phase2_actions": [
+      "ADD",
+      "SKIP",
+      "REPLACE"
+    ]
+  }
+}

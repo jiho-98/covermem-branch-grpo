@@ -1,0 +1,7 @@
+{
+  "parent_repository": "https://github.com/jiho-98/covermem-selector-grpo",
+  "parent_commit": "43179b9b7b9a4cbe2ce8f60105d9689f93ae8f5e",
+  "reused": "RAW executor, cumulative QG/LOO, HF/PEFT sampling and PPO loss, atomic checkpoint and persistent supervisor",
+  "new": "single trainable manager, session-boundary mode switch, same-state full-action branching, deduplicated full QG reward, session std scaling, monitoring",
+  "user_clarification": "Keep existing memory-entry structure; phase1 five original actions, phase2 ADD/SKIP/REPLACE only"
+}
